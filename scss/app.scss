@@ -1,0 +1,75 @@
+
+// ======================== EXAMPLE ========================
+
+@import "Sassmine/manifest";
+
+// ======================= TESTABLES =======================
+
+$var: 10;
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+// ======================= TESTS =======================
+
+@include describe("Test Module") {
+  @include it("should be defined") {
+    @include toBeDefined(var);  
+    @include toBeDefined(vaerwr);
+    @include toBeDefined(vaasserwr); 
+  }
+  
+  @include it("should not be defined") {
+    @include toNotBeDefined(fghs);  
+    @include toNotBeDefined(size);
+    @include toNotBeDefined(abs);
+    @include toNotBeDefined($var);
+  }
+  
+  @include it("should equal") {
+    @include toEqual(20, 20);
+    @include toEqual(#ccc, #ccc);
+    @include toEqual(yellow, blue);
+  }
+  
+  @include it("should not equal") {
+    @include toNotEqual(20, 20);
+    @include toNotEqual(#eee, #ccc);
+    @include toNotEqual(yellow, blue);
+  }
+  
+  @include it("should be greater") {
+    @include toBeGreater(5, 6);
+    @include toBeGreater(20, 6);
+    @include toBeGreater(20, 600);
+  }
+  
+  @include it("should be lesser") {
+    @include toBeLesser(5, 6);
+    @include toBeLesser(1000, 50);
+  }
+  
+  @include it("should not be a number") {
+    @include toBeNaN(string);
+    @include toBeNaN(10);
+  }
+  
+  @include it("should be a color") {
+    @include toBeColor(red);  
+    @include toBeColor(rgba(0, 0, 0, 0.5));  
+    @include toBeColor(#000);
+    @include toBeColor(name);
+  }
+  
+  @include it("should be null") {
+    @include toBeNull(null);
+    @include toBeNull(#333);
+  }
+  
+  @include it("should not be null") {
+    @include toNotBeNull(null);
+    @include toNotBeNull(#333);
+  }
+}

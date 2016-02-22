@@ -1,0 +1,198 @@
+
+// ================================= MIXINS =================================
+
+@mixin toBeNaN($value) {
+  @include total;
+  
+  @if isNaN($value) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toBeColor($value) {
+  @include total;
+  
+  @if isColor($value) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toBeNull($value) {
+  @include total;
+  
+  @if isNull($value) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toNotBeNull($value) {
+  @include total;
+  
+  @if not(isNull($value)) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toEqual($actual, $expected) {
+  @include total;
+  
+  @if isEqual($actual, $expected)  {
+    @include pass; 
+  } @else {
+    @include fail;  
+  }
+}
+
+@mixin toNotEqual($actual, $expected) {
+  @include total;
+  
+  @if not(isEqual($actual, $expected)) {
+    @include pass; 
+  } @else {
+    @include fail; 
+  }
+}
+
+@mixin toNotBeDefined($name) {
+  @include total;
+  
+  @if isMixin($name) or isFunction($name) {
+    @include fail; 
+  } @else if isVariable($name) or isGlobal($name) {
+    @include fail;
+  } @else {
+    @include pass;  
+  }
+}
+
+@mixin toBeDefined($name) {
+  @include total;
+  
+  @if isMixin($name) or isFunction($name) {
+    @include pass;
+  } @else if isVariable($name) or isGlobal($name) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toBeGreater($value1, $value2) {
+  @include total;
+  
+  @if isGreater($value1, $value2) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+@mixin toBeLesser($value1, $value2) {
+  @include total;
+  
+  @if isLesser($value1, $value2) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
+// labels mixins
+
+@mixin describe($name) {
+  /*  #{$name}  */
+  @content;
+  @include outputTotals;
+  /* end #{$name} */
+}
+
+@mixin it($description) {
+  $pass: 0 !global;
+  $fail: 0 !global;
+  $total: 0 !global;
+  
+  //@extend beforeEach !optional;
+  @include outputResults($description) { @content; }
+}
+
+// callers
+
+@mixin pass {
+  @include incrementPass;
+  @include incrementGlobalPass;
+}
+
+@mixin fail {
+  @include incrementFail;
+  @include incrementGlobalFail;
+}
+
+@mixin total {
+  @include incrementTotal;
+  @include incrementGlobalTotal;
+}
+
+// incrementers for stats
+
+@mixin incrementPass {
+  $pass: $pass + 1 !global;
+}
+
+@mixin incrementFail {
+  $fail: $fail + 1 !global;
+}
+
+@mixin incrementTotal {
+  $total: $total + 1 !global;
+}
+
+@mixin incrementGlobalTotal {
+  $global-total: $global-total + 1 !global;
+}
+
+@mixin incrementGlobalPass {
+  $global-pass: $global-pass + 1 !global;
+}
+
+@mixin incrementGlobalFail {
+  $global-fail: $global-fail + 1 !global;
+}
+
+// Output mixins
+
+@mixin outputResults($label: null) {
+  #{$label} {
+    @content;
+    @include results;
+  }
+}
+
+@mixin outputTotals($label: map-get($strings, total-results)) {
+  #{$label} {
+    @include globalResults;  
+  }
+}
+
+@mixin xit($label) {}
+
+@mixin xdescribe($label) {}
+
+@mixin results {
+  pass: $pass;
+  fail: $fail;
+  total: $total;
+}
+
+@mixin globalResults {
+  pass: $global-pass;
+  fail: $global-fail;
+  total: $global-total;
+}

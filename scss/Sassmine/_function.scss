@@ -1,0 +1,42 @@
+
+// ================================= FUNCTIONS =================================
+
+@function isNaN($value) {
+  @return type_of($value) != number;
+}
+
+@function isNull($value) {
+  @return $value == null;
+}
+
+@function isColor($value) {
+  @return type_of($value) == color;
+}
+
+@function isGreater($value1, $value2) {
+  @return $value1 > $value2;
+}
+
+@function isLesser($value1, $value2) {
+  @return $value1 < $value2;
+}
+
+@function isEqual($value1, $value2) {
+  @return $value1 == $value2;
+}
+
+@function isMixin($name) {
+  @return mixin-exists(quote($name));
+}
+
+@function isFunction($name) {
+  @return function-exists(quote($name));
+}
+
+@function isVariable($name) {
+  @return variable-exists(quote($name));
+}
+
+@function isGlobal($name) {
+  @return global-variable-exists(quote($name));
+}

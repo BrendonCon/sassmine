@@ -1,0 +1,68 @@
+/*  Test Module  */
+should be defined {
+  pass: 1;
+  fail: 2;
+  total: 3;
+}
+
+should not be defined {
+  pass: 2;
+  fail: 2;
+  total: 4;
+}
+
+should equal {
+  pass: 2;
+  fail: 1;
+  total: 3;
+}
+
+should not equal {
+  pass: 2;
+  fail: 1;
+  total: 3;
+}
+
+should be greater {
+  pass: 1;
+  fail: 2;
+  total: 3;
+}
+
+should be lesser {
+  pass: 1;
+  fail: 1;
+  total: 2;
+}
+
+should not be a number {
+  pass: 1;
+  fail: 1;
+  total: 2;
+}
+
+should be a color {
+  pass: 3;
+  fail: 1;
+  total: 4;
+}
+
+should be null {
+  pass: 1;
+  fail: 1;
+  total: 2;
+}
+
+should not be null {
+  pass: 1;
+  fail: 1;
+  total: 2;
+}
+
+TEST RESULTS {
+  pass: 15;
+  fail: 13;
+  total: 28;
+}
+
+/* end Test Module */

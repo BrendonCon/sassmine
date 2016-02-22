@@ -1,49 +1,6 @@
-# BEMForce
+# Sassmine
+Sassmine is a collection of mixins available for you to create unit tests in Sass. Inspired by Jasmine for JavaScript unit testing, Sassmine makes use of similiar naming for it's mixins as Jasmine does for it's functions. 
 
-## Config
+At the moment Sassmine compiles test results to a CSS file, the test results will, in the not so distant future, be output and formatted to the console. 
 
-## Mixins
-- **block**: Generates a block selector
-- **element**: Generates an element selector based off of a block
-- **modifier**: Generates a modifier selector based off of a block or an element or both
-
-## Usage 
-**Scss:**
-```sass
-@include block(header) {
-  height: 10%;
-  
-  @include modifier(fixed) {
-    width: 640px;
-  }
-  
-  @include element(search) {
-    float: right;
-    
-    @include modifier(left) {
-      float: left;
-      height: 200px;
-    }
-  }
-}
-```
-
-**CSS:**
-```css
-.header {
-  height: 10%;
-}
-
-.header--fixed {
-  width: 640px;
-}
-
-.header__search {
-  float: right;
-}
-
-.header__search--left {
-  float: left;
-  height: 200px;
-}
-```
+**PLEASE NOTE:** Documentation updates and changes still to follow.

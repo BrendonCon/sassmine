@@ -1,6 +1,12 @@
 
 // ================================= MIXINS =================================
 
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be not a number  
+*/
+
 @mixin toBeNaN($value) {
   @include total;
   
@@ -10,6 +16,12 @@
     @include fail;
   }
 }
+
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be a color  
+*/
 
 @mixin toBeColor($value) {
   @include total;
@@ -21,6 +33,12 @@
   }
 }
 
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be null  
+*/
+
 @mixin toBeNull($value) {
   @include total;
   
@@ -30,6 +48,12 @@
     @include fail;
   }
 }
+
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should not be null  
+*/
 
 @mixin toNotBeNull($value) {
   @include total;
@@ -41,6 +65,13 @@
   }
 }
 
+/*
+  @name toEqual
+  @param $actual {any}
+  @param $expected {any}
+  @description Values to equal  
+*/
+
 @mixin toEqual($actual, $expected) {
   @include total;
   
@@ -51,6 +82,13 @@
   }
 }
 
+/*
+  @name toNotEqual
+  @param $actual {any}
+  @param $expected {any}
+  @description Values to not equal  
+*/
+
 @mixin toNotEqual($actual, $expected) {
   @include total;
   
@@ -60,6 +98,12 @@
     @include fail; 
   }
 }
+
+/*
+  @name toNotBeDefined
+  @param $name {any}
+  @description Value should not be defined  
+*/
 
 @mixin toNotBeDefined($name) {
   @include total;
@@ -73,6 +117,12 @@
   }
 }
 
+/*
+  @name toBeDefined
+  @param $name {any}
+  @description Value should be defined  
+*/
+
 @mixin toBeDefined($name) {
   @include total;
   
@@ -85,6 +135,13 @@
   }
 }
 
+/*
+  @name toBeDefined
+  @param $value1 {any}
+  @param $value2 {any}
+  @description $value1 should be greater than $value2  
+*/
+
 @mixin toBeGreater($value1, $value2) {
   @include total;
   
@@ -94,6 +151,13 @@
     @include fail;
   }
 }
+
+/*
+  @name toBeLesser
+  @param $value1 {any}
+  @param $value2 {any}
+  @description $value1 should be less than $value2  
+*/
 
 @mixin toBeLesser($value1, $value2) {
   @include total;
@@ -105,12 +169,12 @@
   }
 }
 
-// labels mixins
+// -------- LABEL MIXINS --------
 
 @mixin describe($name) {
   /*  #{$name}  */
   @content;
-  @include outputTotals;
+  @include outputDescribeTestResults;
   /* end #{$name} */
 }
 
@@ -120,79 +184,138 @@
   $total: 0 !global;
   
   //@extend beforeEach !optional;
-  @include outputResults($description) { @content; }
+  @include outputItTestResults($description) { @content; }
 }
 
-// callers
+/*
+  @name xit
+  @param $label {string}
+  @description Exclude it blocks from tests
+*/
+
+@mixin xit($label) {}
+
+/*
+  @name xdescribe
+  @param $label {string}
+  @description Exclude descrbe blocks from tests  
+*/
+
+@mixin xdescribe($label) {}
+
+// -------- INCREMENTER MIXINS --------
+
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementPass {
+  $pass: $pass + 1 !global;
+}
+
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementFail {
+  $fail: $fail + 1 !global;
+}
+
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementTotal {
+  $total: $total + 1 !global;
+}
+
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementGlobalTotal {
+  $global-total: $global-total + 1 !global;
+}
+
+/*
+  @name incrementGlobalPass
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementGlobalPass {
+  $global-pass: $global-pass + 1 !global;
+}
+
+/*
+  @name incrementGlobalFail
+  @description Grouped actions for totals  
+*/
+
+@mixin incrementGlobalFail {
+  $global-fail: $global-fail + 1 !global;
+}
+
+/*
+  @name pass
+  @description Grouped actions for passes  
+*/
 
 @mixin pass {
   @include incrementPass;
   @include incrementGlobalPass;
 }
 
+/*
+  @name pass
+  @description Grouped actions for fails  
+*/
+
 @mixin fail {
   @include incrementFail;
   @include incrementGlobalFail;
 }
+
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
 
 @mixin total {
   @include incrementTotal;
   @include incrementGlobalTotal;
 }
 
-// incrementers for stats
+// -------- OUTPUT MIXINS --------
 
-@mixin incrementPass {
-  $pass: $pass + 1 !global;
-}
+/*
+  @name outputItTestResults
+  @param $label {string}
+  @description Output it block results
+*/
 
-@mixin incrementFail {
-  $fail: $fail + 1 !global;
-}
-
-@mixin incrementTotal {
-  $total: $total + 1 !global;
-}
-
-@mixin incrementGlobalTotal {
-  $global-total: $global-total + 1 !global;
-}
-
-@mixin incrementGlobalPass {
-  $global-pass: $global-pass + 1 !global;
-}
-
-@mixin incrementGlobalFail {
-  $global-fail: $global-fail + 1 !global;
-}
-
-// Output mixins
-
-@mixin outputResults($label: null) {
+@mixin outputItTestResults($label: null) {
   #{$label} {
     @content;
-    @include results;
+    pass: $pass;
+    fail: $fail;
+    total: $total;
   }
 }
 
-@mixin outputTotals($label: map-get($strings, total-results)) {
+/*
+  @name outputDescribeTestResults
+  @param $label {string}
+  @description Output describe block results
+*/
+
+@mixin outputDescribeTestResults($label: map-get($strings, total-results)) {
   #{$label} {
-    @include globalResults;  
+    pass: $global-pass;
+    fail: $global-fail;
+    total: $global-total; 
   }
-}
-
-@mixin xit($label) {}
-
-@mixin xdescribe($label) {}
-
-@mixin results {
-  pass: $pass;
-  fail: $fail;
-  total: $total;
-}
-
-@mixin globalResults {
-  pass: $global-pass;
-  fail: $global-fail;
-  total: $global-total;
 }

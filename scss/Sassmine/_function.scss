@@ -1,41 +1,114 @@
 
 // ================================= FUNCTIONS =================================
 
+/*
+  @name isNaN
+  @param $value {any}
+  @description Tests to see if the type is not a number
+  @return {boolean}
+*/
+
 @function isNaN($value) {
   @return type_of($value) != number;
 }
+
+/*
+  @name isNull
+  @param $value {any}
+  @description Tests to see if the value is null
+  @return {boolean}
+*/
 
 @function isNull($value) {
   @return $value == null;
 }
 
+/*
+  @name isColor
+  @param $value {any}
+  @description Tests to see if the type is a color
+  @return boolean
+*/
+
 @function isColor($value) {
   @return type_of($value) == color;
 }
+
+/*
+  @name isGreater
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is greater than value2 
+  @return boolean
+*/
 
 @function isGreater($value1, $value2) {
   @return $value1 > $value2;
 }
 
+/*
+  @name isLesser
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is less than value2 
+  @return boolean
+*/
+
 @function isLesser($value1, $value2) {
   @return $value1 < $value2;
 }
+
+/*
+  @name isEqual
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is equal to value2 
+  @return boolean
+*/
 
 @function isEqual($value1, $value2) {
   @return $value1 == $value2;
 }
 
+/*
+  @name isMixin
+  @param $name {any}
+  @description Tests to see if the value is a defined mixin 
+  @return boolean
+*/
+
 @function isMixin($name) {
   @return mixin-exists(quote($name));
 }
+
+/*
+  @name isFunction
+  @param $name {any}
+  @description Tests to see if the value is a defined function 
+  @return boolean
+*/
 
 @function isFunction($name) {
   @return function-exists(quote($name));
 }
 
+/*
+  @name isVariable
+  @param $name {any}
+  @description Tests to see if the value is a defined variable 
+  @return boolean
+*/
+
 @function isVariable($name) {
   @return variable-exists(quote($name));
 }
+
+/*
+  @name isGlobal
+  @param $name {any}
+  @description Tests to see if the value is a defined global variable 
+  @return boolean
+*/
 
 @function isGlobal($name) {
   @return global-variable-exists(quote($name));

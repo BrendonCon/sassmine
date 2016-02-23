@@ -1,3 +1,176 @@
+/*
+  @name isNaN
+  @param $value {any}
+  @description Tests to see if the type is not a number
+  @return {boolean}
+*/
+/*
+  @name isNull
+  @param $value {any}
+  @description Tests to see if the value is null
+  @return {boolean}
+*/
+/*
+  @name isColor
+  @param $value {any}
+  @description Tests to see if the type is a color
+  @return boolean
+*/
+/*
+  @name isGreater
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is greater than value2 
+  @return boolean
+*/
+/*
+  @name isLesser
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is less than value2 
+  @return boolean
+*/
+/*
+  @name isEqual
+  @param $value1 {number}
+  @param $value2 {number}
+  @description Tests to see if value1 is equal to value2 
+  @return boolean
+*/
+/*
+  @name isMixin
+  @param $name {any}
+  @description Tests to see if the value is a defined mixin 
+  @return boolean
+*/
+/*
+  @name isFunction
+  @param $name {any}
+  @description Tests to see if the value is a defined function 
+  @return boolean
+*/
+/*
+  @name isVariable
+  @param $name {any}
+  @description Tests to see if the value is a defined variable 
+  @return boolean
+*/
+/*
+  @name isGlobal
+  @param $name {any}
+  @description Tests to see if the value is a defined global variable 
+  @return boolean
+*/
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be not a number  
+*/
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be a color  
+*/
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should be null  
+*/
+/*
+  @name toBeNaN
+  @param $value {any}
+  @description Value should not be null  
+*/
+/*
+  @name toEqual
+  @param $actual {any}
+  @param $expected {any}
+  @description Values to equal  
+*/
+/*
+  @name toNotEqual
+  @param $actual {any}
+  @param $expected {any}
+  @description Values to not equal  
+*/
+/*
+  @name toNotBeDefined
+  @param $name {any}
+  @description Value should not be defined  
+*/
+/*
+  @name toBeDefined
+  @param $name {any}
+  @description Value should be defined  
+*/
+/*
+  @name toBeDefined
+  @param $value1 {any}
+  @param $value2 {any}
+  @description $value1 should be greater than $value2  
+*/
+/*
+  @name toBeLesser
+  @param $value1 {any}
+  @param $value2 {any}
+  @description $value1 should be less than $value2  
+*/
+/*
+  @name xit
+  @param $label {string}
+  @description Exclude it blocks from tests
+*/
+/*
+  @name xdescribe
+  @param $label {string}
+  @description Exclude descrbe blocks from tests  
+*/
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+/*
+  @name incrementGlobalPass
+  @description Grouped actions for totals  
+*/
+/*
+  @name incrementGlobalFail
+  @description Grouped actions for totals  
+*/
+/*
+  @name pass
+  @description Grouped actions for passes  
+*/
+/*
+  @name pass
+  @description Grouped actions for fails  
+*/
+/*
+  @name pass
+  @description Grouped actions for totals  
+*/
+/*
+  @name outputItTestResults
+  @param $label {string}
+  @description Output it block results
+*/
+/*
+  @name outputDescribeTestResults
+  @param $label {string}
+  @description Output describe block results
+*/
 /*  Test Module  */
 should be defined {
   pass: 1;

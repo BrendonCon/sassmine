@@ -2,6 +2,34 @@
 // ================================= FUNCTIONS =================================
 
 /*
+  @name isNumber
+  @param $value {any}
+  @description Tests to see if the type is a number
+  @return {boolean}
+*/
+
+@function isNumber($value) {
+  @return type_of($value) == number;
+}
+
+/*
+  @name allNumbers
+  @param $args {any}
+  @description Checks if all arguments are numbers 
+  @return boolean
+*/
+
+@function allNumbers($args...) {
+  @each $arg in $args {
+    @if type_of($arg) != number {
+      @return false;
+    }
+  }
+  
+  @return true;
+}
+
+/*
   @name isNaN
   @param $value {any}
   @description Tests to see if the type is not a number

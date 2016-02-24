@@ -42,7 +42,7 @@ $var: 10;
   
   @include it("should be greater") {
     @include toBeGreater(5, 6);
-    @include toBeGreater(20, 6);
+    @include toBeGreater(20, 10);
     @include toBeGreater(20, 600);
   }
   

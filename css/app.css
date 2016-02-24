@@ -1,4 +1,16 @@
 /*
+  @name isNumber
+  @param $value {any}
+  @description Tests to see if the type is a number
+  @return {boolean}
+*/
+/*
+  @name allNumbers
+  @param $args {any}
+  @description Checks if all arguments are numbers 
+  @return boolean
+*/
+/*
   @name isNaN
   @param $value {any}
   @description Tests to see if the type is not a number
@@ -104,15 +116,15 @@
   @description Value should be defined  
 */
 /*
-  @name toBeDefined
-  @param $value1 {any}
-  @param $value2 {any}
+  @name toBeGreater
+  @param $value1 {number}
+  @param $value2 {number}
   @description $value1 should be greater than $value2  
 */
 /*
   @name toBeLesser
-  @param $value1 {any}
-  @param $value2 {any}
+  @param $value1 {number}
+  @param $value2 {number}
   @description $value1 should be less than $value2  
 */
 /*
@@ -170,6 +182,11 @@
   @name outputDescribeTestResults
   @param $label {string}
   @description Output describe block results
+*/
+/*
+  @name ouput
+  @param $string {string}
+  @description Gets string from string map to output to the console
 */
 /*  Test Module  */
 should be defined {

@@ -136,13 +136,17 @@
 }
 
 /*
-  @name toBeDefined
-  @param $value1 {any}
-  @param $value2 {any}
+  @name toBeGreater
+  @param $value1 {number}
+  @param $value2 {number}
   @description $value1 should be greater than $value2  
 */
 
 @mixin toBeGreater($value1, $value2) {
+  @if allNumbers($value1, $value2) == false {
+    @include output(toBeGreaterExpectsNumbers);
+  }
+  
   @include total;
   
   @if isGreater($value1, $value2) {
@@ -154,12 +158,16 @@
 
 /*
   @name toBeLesser
-  @param $value1 {any}
-  @param $value2 {any}
+  @param $value1 {number}
+  @param $value2 {number}
   @description $value1 should be less than $value2  
 */
 
 @mixin toBeLesser($value1, $value2) {
+  @if allNumbers($value1, $value2) == false {
+    @include output(toBeLesserExpectsNumbers);
+  }
+  
   @include total;
   
   @if isLesser($value1, $value2) {
@@ -312,10 +320,24 @@
   @description Output describe block results
 */
 
-@mixin outputDescribeTestResults($label: map-get($strings, total-results)) {
+@mixin outputDescribeTestResults($label: map-get($strings, totalResults)) {
   #{$label} {
     pass: $global-pass;
     fail: $global-fail;
     total: $global-total; 
+  }
+}
+
+/*
+  @name ouput
+  @param $string {string}
+  @description Gets string from string map to output to the console
+*/
+
+@mixin output($string) {
+  @if map-has-key($strings, $string) {
+    @error map-get($strings, $string);  
+  } @else {
+    @error map-get($strings, stringMissing);
   }
 }

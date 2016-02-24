@@ -6,5 +6,10 @@ $global-fail: 0;
 $global-total: 0;
 
 $strings: (
-  total-results: "TEST RESULTS"
-) !default;
+  stringMissing: "String missing",
+  totalResults: "TEST RESULTS",
+  toBeLesserExpectsNumbers: "@mixin toBeLesser expects numbers as params",
+  toBeGreaterExpectsNumbers: "@mixin toBeGreater expects numbers as params"
+) !global;
+
+

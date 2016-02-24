@@ -1,0 +1,18 @@
+
+// sass unit-test-ception :)
+
+@import "true";
+@import "../scss/Sassmine/manifest";
+
+@include test-module("Sassmine functions") {
+  
+  // add tests here
+  
+	@include test("should do something") {
+		$actual: 10;
+		$expected: 10;
+		@include assert-equal($actual, $expected);
+	}
+}
+
+@include report;

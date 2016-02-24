@@ -1,9 +1,29 @@
 
-// ================================= CONFIG =================================
+/*
+  @name $global-pass {int}
+  @description total passes for all tests
+*/
 
 $global-pass: 0;
+
+/*
+  @name $global-fail {int}
+  @description total fails for all tests
+*/
+
 $global-fail: 0;
+
+/*
+  @name $global-total {int}
+  @description total test count
+*/
+
 $global-total: 0;
+
+/*
+  @name $strings {map}
+  @description Strings for error output
+*/
 
 $strings: (
   stringMissing: "String missing",

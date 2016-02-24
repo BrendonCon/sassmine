@@ -1,9 +1,8 @@
 
-// ======================== EXAMPLE ========================
 
 @import "Sassmine/manifest";
 
-// ======================= TESTABLES =======================
+// add/import items to test here
 
 $var: 10;
 
@@ -12,7 +11,7 @@ $var: 10;
   width: $width;
 }
 
-// ======================= TESTS =======================
+// add tests here
 
 @include describe("Test Module") {
   @include it("should be defined") {

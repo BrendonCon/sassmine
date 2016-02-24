@@ -1,4 +1,20 @@
 /*
+  @name $global-pass {int}
+  @description total passes for all tests
+*/
+/*
+  @name $global-fail {int}
+  @description total fails for all tests
+*/
+/*
+  @name $global-total {int}
+  @description total test count
+*/
+/*
+  @name $strings {map}
+  @description Strings for error output
+*/
+/*
   @name isNumber
   @param $value {any}
   @description Tests to see if the type is a number

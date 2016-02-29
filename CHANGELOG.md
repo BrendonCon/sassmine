@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.3 (29/02/2016)
+ - Version bump
+ - Lowercase sassmine folder
+ - Added package.json for npm
+ - Added gulp tasks
+ - Added built _sassmine.scss partial
+
 ## 0.0.2 (25/02/2016)
  - Added empty folders for build and test
  - Renamed app.scss to test.scss

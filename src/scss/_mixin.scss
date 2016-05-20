@@ -64,7 +64,7 @@
 }
 
 /*
-  @name toEqual
+  @name toBeEqual
   @param $actual {any}
   @param $expected {any}
   @description Values to equal  
@@ -98,12 +98,12 @@
 }
 
 /*
-  @name toNotBeDefined
+  @name toBeUndefined
   @param $name {any}
   @description Value should not be defined  
 */
 
-@mixin toNotBeDefined($name) {
+@mixin toBeUndefined($name) {
   @include total;
   
   @if isMixin($name) or isFunction($name) {

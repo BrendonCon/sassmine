@@ -1,6 +1,6 @@
 
 
-@import "Sassmine/manifest";
+@import "./src/scss/sassmine";
 
 // add/import items to test here
 
@@ -21,10 +21,10 @@ $var: 10;
   }
   
   @include it("should not be defined") {
-    @include toNotBeDefined(fghs);  
-    @include toNotBeDefined(size);
-    @include toNotBeDefined(abs);
-    @include toNotBeDefined($var);
+    @include toBeUndefined(fghs);  
+    @include toBeUndefined(size);
+    @include toBeUndefined(abs);
+    @include toBeUndefined($var);
   }
   
   @include it("should equal") {

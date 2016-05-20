@@ -1,29 +1,17 @@
 
-/*
-  @name $global-pass {int}
-  @description total passes for all tests
-*/
+
 
 $global-pass: 0;
 
-/*
-  @name $global-fail {int}
-  @description total fails for all tests
-*/
+
 
 $global-fail: 0;
 
-/*
-  @name $global-total {int}
-  @description total test count
-*/
+
 
 $global-total: 0;
 
-/*
-  @name $strings {map}
-  @description Strings for error output
-*/
+
 
 $strings: (
   stringMissing: "String missing",
@@ -35,23 +23,13 @@ $strings: (
 
 
 
-/*
-  @name isNumber
-  @param $value {any}
-  @description Tests to see if the type is a number
-  @return {boolean}
-*/
+
 
 @function isNumber($value) {
   @return type_of($value) == number;
 }
 
-/*
-  @name allNumbers
-  @param $args {any}
-  @description Checks if all arguments are numbers 
-  @return boolean
-*/
+
 
 @function allNumbers($args...) {
   @each $arg in $args {
@@ -62,125 +40,68 @@ $strings: (
   @return true;
 }
 
-/*
-  @name isNaN
-  @param $value {any}
-  @description Tests to see if the type is not a number
-  @return {boolean}
-*/
+
 
 @function isNaN($value) {
   @return type_of($value) != number;
 }
 
-/*
-  @name isNull
-  @param $value {any}
-  @description Tests to see if the value is null
-  @return {boolean}
-*/
+
 
 @function isNull($value) {
   @return $value == null;
 }
 
-/*
-  @name isColor
-  @param $value {any}
-  @description Tests to see if the type is a color
-  @return boolean
-*/
+
 
 @function isColor($value) {
   @return type_of($value) == color;
 }
 
-/*
-  @name isGreater
-  @param $value1 {number}
-  @param $value2 {number}
-  @description Tests to see if value1 is greater than value2 
-  @return boolean
-*/
+
 
 @function isGreater($value1, $value2) {
   @return $value1 > $value2;
 }
 
-/*
-  @name isLesser
-  @param $value1 {number}
-  @param $value2 {number}
-  @description Tests to see if value1 is less than value2 
-  @return boolean
-*/
+
 
 @function isLesser($value1, $value2) {
   @return $value1 < $value2;
 }
 
-/*
-  @name isEqual
-  @param $value1 {number}
-  @param $value2 {number}
-  @description Tests to see if value1 is equal to value2 
-  @return boolean
-*/
+
 
 @function isEqual($value1, $value2) {
   @return $value1 == $value2;
 }
 
-/*
-  @name isMixin
-  @param $name {any}
-  @description Tests to see if the value is a defined mixin 
-  @return boolean
-*/
+
 
 @function isMixin($name) {
   @return mixin-exists(quote($name));
 }
 
-/*
-  @name isFunction
-  @param $name {any}
-  @description Tests to see if the value is a defined function 
-  @return boolean
-*/
+
 
 @function isFunction($name) {
   @return function-exists(quote($name));
 }
 
-/*
-  @name isVariable
-  @param $name {any}
-  @description Tests to see if the value is a defined variable 
-  @return boolean
-*/
+
 
 @function isVariable($name) {
   @return variable-exists(quote($name));
 }
 
-/*
-  @name isGlobal
-  @param $name {any}
-  @description Tests to see if the value is a defined global variable 
-  @return boolean
-*/
+
 
 @function isGlobal($name) {
   @return global-variable-exists(quote($name));
 }
 
 
-/*
-  @name toBeNaN
-  @param $value {any}
-  @description Value should be not a number  
-*/
+
 
 @mixin toBeNaN($value) {
   @include total;
@@ -192,11 +113,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeNaN
-  @param $value {any}
-  @description Value should be a color  
-*/
+
 
 @mixin toBeColor($value) {
   @include total;
@@ -208,11 +125,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeNaN
-  @param $value {any}
-  @description Value should be null  
-*/
+
 
 @mixin toBeNull($value) {
   @include total;
@@ -224,11 +137,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeNaN
-  @param $value {any}
-  @description Value should not be null  
-*/
+
 
 @mixin toNotBeNull($value) {
   @include total;
@@ -240,12 +149,7 @@ $strings: (
   }
 }
 
-/*
-  @name toEqual
-  @param $actual {any}
-  @param $expected {any}
-  @description Values to equal  
-*/
+
 
 @mixin toEqual($actual, $expected) {
   @include total;
@@ -257,12 +161,7 @@ $strings: (
   }
 }
 
-/*
-  @name toNotEqual
-  @param $actual {any}
-  @param $expected {any}
-  @description Values to not equal  
-*/
+
 
 @mixin toNotEqual($actual, $expected) {
   @include total;
@@ -274,13 +173,9 @@ $strings: (
   }
 }
 
-/*
-  @name toNotBeDefined
-  @param $name {any}
-  @description Value should not be defined  
-*/
 
-@mixin toNotBeDefined($name) {
+
+@mixin toBeUndefined($name) {
   @include total;
   
   @if isMixin($name) or isFunction($name) {
@@ -292,11 +187,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeDefined
-  @param $name {any}
-  @description Value should be defined  
-*/
+
 
 @mixin toBeDefined($name) {
   @include total;
@@ -310,12 +201,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeGreater
-  @param $value1 {number}
-  @param $value2 {number}
-  @description $value1 should be greater than $value2  
-*/
+
 
 @mixin toBeGreater($value1, $value2) {
   @if allNumbers($value1, $value2) == false {
@@ -331,12 +217,7 @@ $strings: (
   }
 }
 
-/*
-  @name toBeLesser
-  @param $value1 {number}
-  @param $value2 {number}
-  @description $value1 should be less than $value2  
-*/
+
 
 @mixin toBeLesser($value1, $value2) {
   @if allNumbers($value1, $value2) == false {
@@ -355,10 +236,10 @@ $strings: (
 // -------- LABEL MIXINS --------
 
 @mixin describe($name) {
-  /*  #{$name}  */
+  
   @content;
   @include outputDescribeTestResults;
-  /* end #{$name} */
+  
 }
 
 @mixin it($description) {
@@ -370,102 +251,67 @@ $strings: (
   @include outputItTestResults($description) { @content; }
 }
 
-/*
-  @name xit
-  @param $label {string}
-  @description Exclude it blocks from tests
-*/
+
 
 @mixin xit($label) {}
 
-/*
-  @name xdescribe
-  @param $label {string}
-  @description Exclude descrbe blocks from tests  
-*/
+
 
 @mixin xdescribe($label) {}
 
 // -------- INCREMENTER MIXINS --------
 
-/*
-  @name pass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementPass {
   $pass: $pass + 1 !global;
 }
 
-/*
-  @name pass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementFail {
   $fail: $fail + 1 !global;
 }
 
-/*
-  @name pass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementTotal {
   $total: $total + 1 !global;
 }
 
-/*
-  @name pass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementGlobalTotal {
   $global-total: $global-total + 1 !global;
 }
 
-/*
-  @name incrementGlobalPass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementGlobalPass {
   $global-pass: $global-pass + 1 !global;
 }
 
-/*
-  @name incrementGlobalFail
-  @description Grouped actions for totals  
-*/
+
 
 @mixin incrementGlobalFail {
   $global-fail: $global-fail + 1 !global;
 }
 
-/*
-  @name pass
-  @description Grouped actions for passes  
-*/
+
 
 @mixin pass {
   @include incrementPass;
   @include incrementGlobalPass;
 }
 
-/*
-  @name pass
-  @description Grouped actions for fails  
-*/
+
 
 @mixin fail {
   @include incrementFail;
   @include incrementGlobalFail;
 }
 
-/*
-  @name pass
-  @description Grouped actions for totals  
-*/
+
 
 @mixin total {
   @include incrementTotal;
@@ -474,11 +320,7 @@ $strings: (
 
 // -------- OUTPUT MIXINS --------
 
-/*
-  @name outputItTestResults
-  @param $label {string}
-  @description Output it block results
-*/
+
 
 @mixin outputItTestResults($label: null) {
   #{$label} {
@@ -489,11 +331,7 @@ $strings: (
   }
 }
 
-/*
-  @name outputDescribeTestResults
-  @param $label {string}
-  @description Output describe block results
-*/
+
 
 @mixin outputDescribeTestResults($label: map-get($strings, totalResults)) {
   #{$label} {
@@ -503,11 +341,7 @@ $strings: (
   }
 }
 
-/*
-  @name ouput
-  @param $string {string}
-  @description Gets string from string map to output to the console
-*/
+
 
 @mixin output($string) {
   @if map-has-key($strings, $string) {

@@ -1,6 +1,6 @@
 {
   "name": "Sassmine",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "Unit testing for Sass",
   "main": "scss/test.scss",
   "directories": {
@@ -14,7 +14,8 @@
     "gulp-sass": "^2.2.0"
   },
   "devDependencies": {
-    "": ""
+    "": "",
+    "gulp-strip-css-comments": "^1.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +25,8 @@
     "url": "https://github.com/BrendonCon/Sassmine.git"
   },
   "keywords": [
-    "sass", "unit-tests"
+    "sass",
+    "unit-tests"
   ],
   "author": "Brendon Conradie",
   "license": "ISC",

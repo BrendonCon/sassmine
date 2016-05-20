@@ -2,7 +2,7 @@
 // sass unit-test-ception :)
 
 @import "true";
-@import "../scss/Sassmine/manifest";
+@import "./src/scss/sassmine";
 
 @include test-module("Sassmine functions") {
   

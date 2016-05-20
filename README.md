@@ -38,6 +38,7 @@ to include in your projects:
 - **toBeGreater($actual, $expected)**: actual value to be greater than the expected value
 - **toEqual($actual, $expected)**: actual value to be equal to the expected value
 - **toNotEqual($actual, $expected)**: actual value to not equal the expected value
+- **toBeCloseTo($actual, $expected, $precision)**: actual value must be close to the expected value
 - **toBeDefined($value)**: value to be defined
 - **toBeUndefined($value)**: value to be undefined
 - **toBeNull($value)**: value must be null

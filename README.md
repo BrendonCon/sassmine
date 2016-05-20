@@ -119,5 +119,10 @@ $var: 10;
     @include toBeCloseTo(3, 5);
     @include toBeCloseTo(3, 5, 1);
   }
+  
+  @include it("should contain") {
+    @include toContain('http://www.google.com', 'http');
+    @include toContain('http://www.facebook.com', 'https');
+  }
 }
 ```

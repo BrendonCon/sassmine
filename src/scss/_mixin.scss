@@ -184,7 +184,7 @@
 */
 
 @mixin toBeCloseTo($actual, $expected, $precision: $PRECISION) {
-  @if allNumbers($value1, $value2) == false {
+  @if allNumbers($actual, $expected) == false {
     @include output(toBeLesserExpectsNumbers);
   }
   
@@ -340,7 +340,7 @@
   @description Output describe block results
 */
 
-@mixin outputDescribeTestResults($label: map-get($strings, totalResults)) {
+@mixin outputDescribeTestResults($label: map-get($STRINGS, totalResults)) {
   #{$label} {
     pass: $global-pass;
     fail: $global-fail;
@@ -356,8 +356,8 @@
 
 @mixin output($string) {
   @if map-has-key($strings, $string) {
-    @error map-get($strings, $string);  
+    @error map-get($STRINGS, $string);  
   } @else {
-    @error map-get($strings, stringMissing);
+    @error map-get($STRINGS, stringMissing);
   }
 }

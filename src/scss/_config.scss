@@ -25,14 +25,14 @@ $global-total: 0;
   @description For close to comparisons
 */
 
-$precision: 0;
+$PRECISION: 3;
 
 /*
   @name $strings {map}
   @description Strings for error output
 */
 
-$strings: (
+$STRINGS: (
   stringMissing: "String missing",
   totalResults: "TEST RESULTS",
   toBeLesserExpectsNumbers: "@mixin toBeLesser expects numbers as params",

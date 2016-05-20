@@ -13,7 +13,11 @@ $global-total: 0;
 
 
 
-$strings: (
+$PRECISION: 3;
+
+
+
+$STRINGS: (
   stringMissing: "String missing",
   totalResults: "TEST RESULTS",
   toBeLesserExpectsNumbers: "@mixin toBeLesser expects numbers as params",
@@ -74,6 +78,12 @@ $strings: (
 
 @function isEqual($value1, $value2) {
   @return $value1 == $value2;
+}
+
+
+
+@function isCloseTo($value1, $value2, $precision) {
+  @return ($value1 >= $value2 - $precision) and ($value1 <= $value2 + $precision);
 }
 
 
@@ -233,6 +243,22 @@ $strings: (
   }
 }
 
+
+
+@mixin toBeCloseTo($actual, $expected, $precision: $PRECISION) {
+  @if allNumbers($actual, $expected) == false {
+    @include output(toBeLesserExpectsNumbers);
+  }
+  
+  @include total;
+  
+  @if isCloseTo($actual, $expected, $precision) {
+    @include pass; 
+  } @else {
+    @include fail; 
+  }
+}
+
 // -------- LABEL MIXINS --------
 
 @mixin describe($name) {
@@ -333,7 +359,7 @@ $strings: (
 
 
 
-@mixin outputDescribeTestResults($label: map-get($strings, totalResults)) {
+@mixin outputDescribeTestResults($label: map-get($STRINGS, totalResults)) {
   #{$label} {
     pass: $global-pass;
     fail: $global-fail;
@@ -345,8 +371,8 @@ $strings: (
 
 @mixin output($string) {
   @if map-has-key($strings, $string) {
-    @error map-get($strings, $string);  
+    @error map-get($STRINGS, $string);  
   } @else {
-    @error map-get($strings, stringMissing);
+    @error map-get($STRINGS, stringMissing);
   }
 }

@@ -4,6 +4,8 @@
  - Added strip css comments to build
  - Fixed versioning 
  - Updated README
+ - Added precision constant, mixin and function
+ - Added toBeCloseTo example
 
 ## 0.0.6 (08/05/2016)
  - Version bump

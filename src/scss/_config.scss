@@ -21,6 +21,13 @@ $global-fail: 0;
 $global-total: 0;
 
 /*
+  @name $precision {number}
+  @description For close to comparisons
+*/
+
+$precision: 0;
+
+/*
   @name $strings {map}
   @description Strings for error output
 */

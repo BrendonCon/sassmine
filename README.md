@@ -112,5 +112,10 @@ $var: 10;
     @include toNotBeNull(null);
     @include toNotBeNull(#333);
   }
+  
+  @include it("should be close to") {
+    @include toBeCloseTo(3, 5);
+    @include toBeCloseTo(3, 5, 1);
+  }
 }
 ```

@@ -175,6 +175,28 @@
   }
 }
 
+/*
+  @name toBeCloseTo
+  @param $actual {number}
+  @param $expected {number}
+  @param $precision {number}
+  @description Actual to be close to the expected
+*/
+
+@mixin toBeCloseTo($actual, $expected, $precision: $PRECISION) {
+  @if allNumbers($value1, $value2) == false {
+    @include output(toBeLesserExpectsNumbers);
+  }
+  
+  @include total;
+  
+  @if isCloseTo($actual, $expected, $precision) {
+    @include pass; 
+  } @else {
+    @include fail; 
+  }
+}
+
 // -------- LABEL MIXINS --------
 
 @mixin describe($name) {

@@ -96,6 +96,17 @@
 }
 
 /*
+  @name isCloseTo
+  @param $value {number}
+  @description Tests to see if number is close to a certain  
+  @return boolean
+*/
+
+@function isCloseTo($value1, $value2, $precision) {
+  @return ($value1 >= $value2 - $precision) and ($value1 <= $value2 + $precision);
+}
+
+/*
   @name isMixin
   @param $name {any}
   @description Tests to see if the value is a defined mixin 

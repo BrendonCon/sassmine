@@ -64,8 +64,14 @@ should be close to {
   total: 2;
 }
 
+should contain {
+  pass: 1;
+  fail: 1;
+  total: 2;
+}
+
 TEST RESULTS {
-  pass: 16;
-  fail: 14;
-  total: 30;
+  pass: 17;
+  fail: 15;
+  total: 32;
 }

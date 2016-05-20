@@ -28,23 +28,24 @@ to include in your projects:
 
 ## Mixins
 ### Statements
-- **describe($name)**: creates a describe block
-- **xdescribe($name)**: disables a describe block
-- **it($label)**: creates an it block
-- **xit($label)**: disables it block
+- **describe($name)**
+- **xdescribe($name)**
+- **it($label)**
+- **xit($label)**
 
 ### Asserts
-- **toBeLesser($actual, $expected)**: actual value to be less than the expected value
-- **toBeGreater($actual, $expected)**: actual value to be greater than the expected value
-- **toEqual($actual, $expected)**: actual value to be equal to the expected value
-- **toNotEqual($actual, $expected)**: actual value to not equal the expected value
-- **toBeCloseTo($actual, $expected, $precision)**: actual value must be close to the expected value
-- **toBeDefined($value)**: value to be defined
-- **toBeUndefined($value)**: value to be undefined
-- **toBeNull($value)**: value must be null
-- **toNotBeNull($value)**: value must not be null
-- **toBeColor($value)**: value must be a color value
-- **toBeNaN($value)**: value must not be a number
+- **toBeLesser($actual, $expected)**
+- **toBeGreater($actual, $expected)**
+- **toEqual($actual, $expected)**
+- **toNotEqual($actual, $expected)**
+- **toBeCloseTo($actual, $expected, $precision)**
+- **toBeDefined($value)**
+- **toBeUndefined($value)**
+- **toBeNull($value)**
+- **toNotBeNull($value)**
+- **toBeColor($value)**
+- **toBeNaN($value)**
+- **toContain($string, $subString)**
 
 ## Example
 Sassmine offers a friendly syntax most similar to Jasmine

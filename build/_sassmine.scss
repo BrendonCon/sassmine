@@ -113,6 +113,12 @@ $STRINGS: (
 
 
 
+@function toContain($string, $subString) {
+  @return str_index($string, $subString) != null;
+}
+
+
+
 @mixin toBeNaN($value) {
   @include total;
   
@@ -256,6 +262,18 @@ $STRINGS: (
     @include pass; 
   } @else {
     @include fail; 
+  }
+}
+
+
+
+@mixin toContain($string, $subString) {
+  @include total;
+  
+  @if toContain($string, $subString) {
+    @include pass;
+  } @else {
+    @include fail;
   }
 }
 

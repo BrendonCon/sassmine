@@ -9,6 +9,7 @@
  - Cleaned example ouput
  - Change example Sassmine import
  - Split out grunt tasks
+ - Added toContain mixin and function
 
 ## 0.0.6 (08/05/2016)
  - Version bump

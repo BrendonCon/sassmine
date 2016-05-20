@@ -197,6 +197,23 @@
   }
 }
 
+/*
+  @name toContain
+  @param $value1 {number}
+  @param $value2 {number}
+  @description $value1 should be less than $value2  
+*/
+
+@mixin toContain($string, $subString) {
+  @include total;
+  
+  @if toContain($string, $subString) {
+    @include pass;
+  } @else {
+    @include fail;
+  }
+}
+
 // -------- LABEL MIXINS --------
 
 @mixin describe($name) {

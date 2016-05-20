@@ -51,6 +51,13 @@ for JavaScript. Sassmine asserts are slightly different and have been
 compacted into slight variants of the known JS equivalents. 
 
 ```sass
+$var: 10;
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
 @include describe("Test Module") {
   @include it("should be defined") {
     @include toBeDefined(var);  
